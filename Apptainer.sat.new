@@ -45,17 +45,17 @@ Stage: run
     /fast-downward.py \
         --plan-file "$PLANFILE" \
         --transform-task preprocess \
-        --alias seq-agl-cerberus-novelops-argmax \
+        --alias seq-sat-cerberus-new \
         "$DOMAINFILE" \
         "$PROBLEMFILE" 
 
 ## Define meta data
 %labels
-Name        TFTM
-Description Planner based on the IJCAI 2021 paper The Fewer the Merrier: [Pruning Preferred Operators with Novelty](https://www.ijcai.org/proceedings/2021/0576.pdf).
-Authors     Alex Tuisov <Queldelan@gmail.com>, Michael Katz <Michael.Katz1@ibm.com>
+Name        Cerberus
+Description Planner Cerberus from IPC 2018
+Authors     Michael Katz <Michael.Katz1@ibm.com>
 License     GPL 3
-Tracks      agile
+Tracks      satisficing
 SupportsDerivedPredicates                       no
 SupportsUniversallyQuantifiedPreconditions      yes
 SupportsExistentiallyQuantifiedPreconditions    yes
