@@ -299,7 +299,7 @@ def _get_new_cerberus(**kwargs):
                          ],repeat_last=true,continue_on_fail=true)""",
         "--if-non-unit-cost",
         "--evaluator",
-        "hlm=lmcount(lm_reasonable_orders_hps(lm_rhw()),transform=adapt_costs(one),pref={pref})".format(**kwargs),
+        "hlm1=lmcount(lm_reasonable_orders_hps(lm_rhw()),transform=adapt_costs(one),pref={pref})".format(**kwargs),
         "--evaluator", 
         "hrb1=RB(dag={dag}, extract_plan=true, transform=adapt_costs(one))".format(**kwargs),
         "--evaluator", 
