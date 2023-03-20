@@ -236,19 +236,19 @@ def _get_cerberus_novelty_ops(**kwargs):
         "hrb1=RB(dag={dag}, extract_plan=true, transform=adapt_costs(one))".format(**kwargs),
         "--evaluator",
         "hn=novelty(eval=hrb, type=separate_both, pref=true, %s)" % cutoff,
-        "--evaluator",
-        "hlm2=lmcount(lm_reasonable_orders_hps(lm_rhw()),transform=adapt_costs(plusone),pref={pref})".format(**kwargs),
+#        "--evaluator",
+#        "hlm2=lmcount(lm_reasonable_orders_hps(lm_rhw()),transform=adapt_costs(plusone),pref={pref})".format(**kwargs),
         "--evaluator", 
         "hrb2=RB(dag={dag}, extract_plan=true, transform=adapt_costs(plusone))".format(**kwargs),
         "--search", """iterated([
                          lazy(open=alt([tiebreaking([hn, hrb1]), single(hn,pref_only=true), single(hlm1), single(hlm1,pref_only=true)], boost=1000), preferred=[hrb1,hlm1],
                                      cost_type=one,reopen_closed=false),
-                         lazy_greedy([hrb2,hlm2],preferred=[hrb2,hlm2],
+                         lazy_greedy([hrb2,hlm1],preferred=[hrb2,hlm1],
                                      reopen_closed=false),
-                         lazy_wastar([hrb2,hlm2],preferred=[hrb2,hlm2],w=5),
-                         lazy_wastar([hrb2,hlm2],preferred=[hrb2,hlm2],w=3),
-                         lazy_wastar([hrb2,hlm2],preferred=[hrb2,hlm2],w=2),
-                         lazy_wastar([hrb2,hlm2],preferred=[hrb2,hlm2],w=1)
+                         lazy_wastar([hrb2,hlm1],preferred=[hrb2,hlm1],w=5),
+                         lazy_wastar([hrb2,hlm1],preferred=[hrb2,hlm1],w=3),
+                         lazy_wastar([hrb2,hlm1],preferred=[hrb2,hlm1],w=2),
+                         lazy_wastar([hrb2,hlm1],preferred=[hrb2,hlm1],w=1)
                          ],repeat_last=true,continue_on_fail=true)""",
         # Append --always to be on the safe side if we want to append
         # additional options later.
