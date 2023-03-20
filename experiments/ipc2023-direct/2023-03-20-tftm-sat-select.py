@@ -15,7 +15,7 @@ from common_setup import IssueConfig, IssueExperiment, DEFAULT_SATISFICING_SUITE
 
 
 
-REVISION = 'ipc2023-classical'
+REVISION = 'tests'
 
 
 def main(revisions=None):
