@@ -45,14 +45,14 @@ Stage: run
     /fast-downward.py \
         --plan-file "$PLANFILE" \
         --transform-task preprocess \
-        --alias seq-sat-cerberus-new \
+        --alias seq-sat-cerberus2018 \
         "$DOMAINFILE" \
         "$PROBLEMFILE" 
 
 ## Define meta data
 %labels
 Name        Cerberus
-Description Planner Cerberus from IPC 2018, new version
+Description Planner Cerberus from IPC 2018
 Authors     Michael Katz <Michael.Katz1@ibm.com>
 License     GPL 3
 Tracks      satisficing
